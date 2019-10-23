@@ -1,0 +1,38 @@
+spring: 
+  application:
+    name: SCW-PROJECT
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://192.168.137.3:3306/atcrowdfunding190513?useSSL=false&useUnicode=true&characterEncoding=UTF-8
+    driver-class-name: com.mysql.jdbc.Driver
+#    type: com.alibaba.druid.pool.DruidDataSource
+#    filters: stat
+
+  redis:
+    host: 192.168.137.3
+    port: 6379
+    
+server:
+  port: 8000
+ 
+mybatis:
+  config-location: classpath:/mybatis/mybatis-config.xml
+  mapper-locations: classpath:/mybatis/mapper/*.xml
+ 
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    appname: SCW-PROJECT
+    prefer-ip-address: true
+ 
+swagger2: 
+  enable: true
+
+oss: 
+  endpoint: oss-cn-beijing.aliyuncs.com
+  accessKeyId: LTAI4FrnpkUBLJtuVjsyUVBp
+  accessKeySecret: AdImstqpuzUwgirOOBt9Qfu5wM7AfQ
+  bucketName: scw190831

@@ -1,0 +1,49 @@
+魏剑辉    39.105.47.96-8761魏剑辉      SCW-REGISTER 注册中心
+	nohup java -jar scw-register-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod > ./scw-register.log &
+
+裴世康    39.106.91.206:10000   SCW-WEBUI Web项目
+
+		   MySQL:3306
+				zhangsan ROOTroot123
+		   
+		   Redis:3721 
+		   
+		   Nginx:80 - 域名绑定到本机80端口,使用内网穿透域名即可
+		   
+		   OSS 云存储服务-静态资源存储(图片)
+		   
+nohup java -jar scw-webui-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod \
+--eureka.instance.ipAddress=39.107.87.180 \
+--alipay.notify_url=http://boysurf.cn/order/payAsync \
+--alipay.return_url=http://boysurf.cn/order/pay/success \
+--jdbc:mysql:39.107.87.180:3306/atcrowdfunding181111?useSSL=false \
+> ./scw-webui.log &
+
+
+nohup java -jar scw-webui-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod \
+--eureka.instance.ipAddress=39.107.87.180 \
+--alipay.notify_url=http://39.107.87.180:80/order/payAsync \
+--alipay.return_url=http://39.107.87.180:80/order/pay/success \
+--jdbc:mysql:39.107.87.180:3306/atcrowdfunding181111?useSSL=false \
+> ./scw-webui.log &
+		   
+
+贾京都   47.93.53.77-7000贾京都   SCW-USER 用户服务
+nohup java -jar scw-user-0.0.1-SNAPSHOT.jar \
+--spring.profiles.active=prod \
+--eureka.instance.ipAddress=47.93.53.77 \
+> ./scw-user.log &
+ 
+田雨  47.94.149.139-8000田雨   SCW-PROJECT 项目服务
+
+nohup java -jar scw-project-0.0.1-SNAPSHOT.jar \
+--spring.profiles.active=prod \
+--eureka.instance.ipAddress=47.94.149.139 \
+> ./scw-project.log &
+
+张亚楠  39.106.226.85-9000张亚楠    SCW-ORER 订单服务
+
+nohup java -jar scw-order-0.0.1-SNAPSHOT.jar \
+--spring.profiles.active=prod \
+--eureka.instance.ipAddress=39.106.226.85 \
+> ./scw-order.log &

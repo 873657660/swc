@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p th:text="${hello}">xx</p>
+	
+	<ul>
+		<li th:text="${name}" th:each="name:${strList}" th:if="${strList!=null}">xxx</li>
+	</ul>
+	
+	<ul>
+		<li th:each="name:${strList}" th:if="${strList!=null}">[[${name}]]</li>  <!-- 行内写法 -->
+	</ul>
+</body>
+</html>
